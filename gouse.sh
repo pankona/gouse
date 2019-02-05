@@ -9,6 +9,7 @@ GO="$HOME/go/bin/$1"
 
 if [ ! -x "$GO" ]; then
   echo "$GO is not Go compiler"
+  exit 1
 fi
 
 echo "Use $GO as Go compiler"
