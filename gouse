@@ -10,10 +10,17 @@ if [ "$1" = "list" ]; then
   exit 0
 fi
 
+if [ "$1" = "download" ]; then
+  go get golang.org/dl/$2
+  $2 download
+  echo "Download $2 succeeded"
+  exit 0
+fi
+
 GO="$HOME/go/bin/$1"
 
 if [ ! -x "$GO" ]; then
-  echo "$GO is not Go compiler"
+  echo "Failed to switch Go compiler. $GO is not Go compiler"
   exit 1
 fi
 
