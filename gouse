@@ -17,6 +17,12 @@ if [ "$1" = "download" ]; then
   exit 0
 fi
 
+if [ "$1" = "releases" ]; then
+  curl -v --silent -X GET https://api.github.com/repos/golang/go/git/refs/tags 2>&1 |
+    grep tags | grep url | grep -v weekly | grep -v release | cut -d"/" -f10 | sed 's/",//' | tail -n 15 | tac
+  exit 0
+fi
+
 GO="$HOME/go/bin/$1"
 
 if [ ! -x "$GO" ]; then
