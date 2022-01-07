@@ -31,5 +31,5 @@ if [ ! -x "$GO" ]; then
 fi
 
 echo "Use $GO as Go compiler"
-rm $HOME/go/bin/go
+rm -f $HOME/go/bin/go
 ln -s $GO $HOME/go/bin/go
