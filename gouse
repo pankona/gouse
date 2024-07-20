@@ -23,7 +23,7 @@ if [ "$1" = "releases" ]; then
   exit 0
 fi
 
-GO="$HOME/go/bin/$1"
+GO="$HOME/sdk/$1/bin/go"
 
 if [ ! -x "$GO" ]; then
   echo "Failed to switch Go compiler. $GO is not Go compiler"
